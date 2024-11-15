@@ -2,17 +2,11 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
-const { Client } = require("pg");
+
+// import DB Sequelize
+// const sequelize = require("./config/db");
 
 const app = express();
-
-// DB postgress connection
-//const client =  new Client();
-//client.connect();
-
-//const res = client.query(`SELECT $1:: text as message`, ['Hello world']);
-//console.log("res >>>>",res[0]);
-//client.end();
 
 app.get("/", (req, res) => {
   res.send("Hello from qovery");
@@ -33,3 +27,14 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Porte est lance sur port ${PORT}`);
 });
+
+// const testDbConnection = async () => {
+//   try {
+//     await sequelize.authenticate();
+//     console.log("Connection has been established successfully.");
+//   } catch (error) {
+//     console.error("Unable to connect to the database:", error);
+//   }
+// };
+
+// testDbConnection();
